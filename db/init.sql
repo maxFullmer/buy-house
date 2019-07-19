@@ -22,5 +22,25 @@ INSERT INTO houseList
 VALUES
 ('Florida Man', '1337 Sandstorm Drive', 'Cape Canaveral', 'FL', 14234, 'https://m.wsj.net/video/20180315/032018lotd_boca/032018lotd_boca_1280x720.jpg', 400000.00, 1000.25);
 
-
 SELECT * FROM houseList;
+
+CREATE TABLE renterList
+( 
+    id INTEGER REFERENCES houseList(id),
+    renter VARCHAR(100)
+);
+
+INSERT INTO renterList
+(renter)
+VALUES
+('Nick AND Max');
+
+INSERT INTO renterList
+(renter)
+VALUES
+('Mick AND Nax');
+
+
+SELECT renterList.renter FROM renterList
+LEFT JOIN houseList
+ON houselist.id = renterList.id;
